@@ -44,7 +44,7 @@ impl LogarithmicMapping {
             return Err(DDSketchError::InvalidRelativeAccuracy);
         }
         
-        let multiplier = 1.0 / (2.0 * relative_accuracy).ln();
+        let multiplier = 1.0 / (1.0 + relative_accuracy).ln();
         let offset = 0.0;
         
         Ok(LogarithmicMapping {
@@ -131,7 +131,6 @@ mod tests {
             indices.push(mapping.key(value).unwrap());
         }
         
-        // Indices should be monotonically increasing
         for i in 1..indices.len() {
             assert!(indices[i] >= indices[i-1]);
         }

@@ -13,7 +13,7 @@
 //! ```
 //! use ddsketch_rs::DDSketch;
 //!
-//! let mut sketch = DDSketch::new(0.02)?; // 2% relative accuracy
+//! let mut sketch = DDSketch::new(0.02).unwrap(); // 2% relative accuracy
 //! 
 //! // Add values
 //! sketch.add(1.0);
@@ -21,8 +21,8 @@
 //! sketch.add(3.0);
 //! 
 //! // Get quantiles
-//! let median = sketch.get_quantile_value(0.5)?;
-//! let p99 = sketch.get_quantile_value(0.99)?;
+//! let median = sketch.get_quantile_value(0.5).unwrap();
+//! let p99 = sketch.get_quantile_value(0.99).unwrap();
 //! ```
 
 pub mod ddsketch;
